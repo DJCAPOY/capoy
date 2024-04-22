@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(isset($_SESSION['id'])) {
+    header("Location: ./home.php");
+}
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -32,15 +35,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                     if($user_data['password'] === $password)
                     {
 
-                        $_SESSION['id'] = $id;
+                        $_SESSION['id'] = $user_data['id'];
                         $_SESSION["log_in"] = true;
-                        header("Location: home.php");
-                        die;
+                        header("Location: ./home.php");
                     }
                 }
             }
         }
     }
+
+  
 ?>
 
 <!DOCTYPE html>
@@ -126,7 +130,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 <body>
     <div class="login-container">
         <h1>Login Form</h1>
-        <form action="/capoy/home.php" method="POST">
+        <form action="" method="POST">
             <label for="username">ID Number:</label>
             <input type="text" name="idno" id="idno" required>
 

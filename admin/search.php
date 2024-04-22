@@ -46,7 +46,7 @@ $searchId = $connection->real_escape_string($_GET['search']);
                 </div>
                
             </div>
-             <ul class="flex gap-3 items-center">
+              <ul class="flex gap-3 items-center">
                     <li>
                         <a href="./search.php" class="hover:text-blue-500 duration-200 transition-colors cursor-pointer font-semibold">Search</a>
                     </li>
@@ -54,7 +54,7 @@ $searchId = $connection->real_escape_string($_GET['search']);
                         <a href="./records.php" class="hover:text-blue-500 duration-200 transition-colors cursor-pointer font-semibold">View Sit In Records</a>
                     </li>
                      <li>
-                        <a class="hover:text-blue-500 duration-200 transition-colors cursor-pointer font-semibold">Generate Report</a>
+                        <a  href="./generate.php"class="hover:text-blue-500 duration-200 transition-colors cursor-pointer font-semibold">Generate Report</a>
                     </li>
                      <li>
                         <a href=".././logout.php" class="hover:text-blue-500 duration-200 transition-colors cursor-pointer font-semibold bg-red-600 text-white px-3 p-1 rounded-md">Logout</a>

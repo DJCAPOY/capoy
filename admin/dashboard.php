@@ -44,7 +44,7 @@ if(!isset($_SESSION['role'])) {
         </nav>
     </header>
 
-    <main class=" mx-14 mt-5 flex gap-4">
+    <main style="background-image: url('./background.jpg'); background-repeat: no-repeat; background-size: cover;" class=" mx-14 mt-5 flex gap-4">
       
             <div class="border shadow-lg p-5">
                 <span>Total Students</span>

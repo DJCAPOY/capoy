@@ -35,41 +35,13 @@ $message = "";
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $midname = $_POST['midname'];
-    $age = $_POST['age'];
-    $gender = $_POST['gender'];
-    $address = $_POST['address'];
-    $email = $_POST['email'];
-    $contactno = $_POST['contactno'];
-    $password = $_POST['password'];
-    if($student['password'] == $password){
-       $query = "UPDATE students 
-          SET firstname = '$firstname', 
-              lastname = '$lastname', 
-              midname = '$midname',
-              age = '$age',
-              gender = '$gender',
-              email = '$email',
-              address = '$address',
-              contactno = '$contactno' 
-          WHERE id = '$id'";
-
-
-        
-        $result = $connection->query($query);
-            $student['firstname'] = $firstname;
-            $student['lastname'] = $lastname;
-            $student['midname'] = $midname;
-            $student['age'] = $age;
-            $student['gender'] = $gender;
-            $student['address'] = $address;
-            $student['contactno'] = $contactno;
-            $student['email'] = $email;
-        $message = '<span class="text-green-500 text-center">Updated Successfully!</span>';
-    }else {
-         $message =  '<span class="text-red-500 text-center">Incorrect Password</span>';
+    $content = $_POST['feedback'];
+    if($content == "")
+        $message = "Enter a feedback";
+    else {
+        $sql = "INSERT INTO fee ( student_id, content) VALUES ('$id', '$content')";
+        $result = $connection->query($sql);
+        $message = "Feedback submitted!";
     }
 }
 ?>
@@ -82,7 +54,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Home</title>
+    <title>Report / Feedback</title>
 </head>
 <body style="background-image: url('./background.jpg'); background-repeat: no-repeat; background-size: cover;">
     
@@ -117,7 +89,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                <span class="flex-1 ms-3 hover:text-white text-gray-700 whitespace-nowrap">History</span>
             </a>
          </li>
-          <li>
+           <li>
             <a href="./report.php" class="flex items-center text-[#2672E3] p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                   <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z"/>
@@ -146,49 +118,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 </aside>
 <main class="flex justify-center ml-72 text-black mt-20 ">
     <div class="flex flex-col">
-      <span class="text-xl text-gray-700 text-left">Profile Settings</span>
-      <?php echo $message;?>
+      <span class="text-xl text-white text-left">Report A Bug / Problem</span>
+      <span class="text-xl font-medium text-red-500"><?php echo $message;?></span>
       <div class="flex justify-start mt-5">
-        <form action="" method="post" class="border border-gray-400 rounded-md p-10 grid grid-cols-2 gap-4">
-        <div class="flex justify-between items-center">
-            <label>First Name</label>
-            <input  name="firstname"class="border border-gray-400 px-3 p-2 rounded-md " type="text" value="<?php echo $student['firstname'];?>" />
-        </div>
-        <div class="flex justify-between items-center">
-            <label>First Name</label>
-            <input  name="lastname"class="border border-gray-400 px-3 p-2 rounded-md " type="text" value="<?php echo $student['lastname'];?>" />
-        </div class="flex justify-between items-center">
-         <div>
-            <label>Middle Name</label>
-            <input  name="midname"class="border border-gray-400 px-3 p-2 rounded-md " type="text" value="<?php echo $student['midname'];?>" />
-        </div>
-         <div class="flex justify-between items-center">
-            <label>Age</label>
-            <input  name="age"class="border border-gray-400 px-3 p-2 rounded-md " type="text" value="<?php echo $student['age'];?>" />
-        </div>
-         <div class="flex justify-between items-center">
-            <label>Gender</label>
-            <input  name="gender"class="border border-gray-400 px-3 p-2 rounded-md " type="text" value="<?php echo $student['gender'];?>" />
-        </div>
-         <div class="flex justify-between items-center">
-            <label>Contact</label>
-            <input  name="contactno"class="border border-gray-400 px-3 p-2 rounded-md " type="text" value="<?php echo $student['contactno'];?>" />
-        </div>
-         <div class="flex justify-between items-center">
-            <label>Enail</label>
-            <input  name="email" class="border border-gray-400 px-3 p-2 rounded-md " type="text" value="<?php echo $student['email'];?>" />
-        </div>
-         <div class="flex justify-between items-center">
-            <label>Address</label>
-            <input name="address" class="border border-gray-400 px-3 p-2 rounded-md " type="text" value="<?php echo $student['address'];?>" />
-        </div>
-        <div class="flex gap-2 items-center col-span-2">
-            <label>Password</label>
-            <input class="w-full border border-gray-400 px-3 p-2 rounded-md " type="password" name="password" />
-        </div>
-        <div></div>
-        <div class="flex justify-end">
-            <button class="bg-green-600 text-white px-3 p-2 rounded-md">Update Profile</button>
+        <form action="" method="post" class="border border-white bg-white text-black rounded-md p-10 gap-4">
+            <label>Feedback</label>
+         <div class="mt-3 w-full bg-slate-200 text-black rounded-md px-3 p-2 text-sm">
+                            <textarea id="feedback" name="feedback" rows="5" cols="50" class="bg-transparent outline-none"></textarea>
+            </div>
+        <div class="mt-4 flex justify-end">
+            <button class="bg-green-600 text-white px-3 p-2 rounded-md">Submit</button>
         </div>
       </form>
       </div>

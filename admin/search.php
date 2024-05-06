@@ -56,6 +56,9 @@ $searchId = $connection->real_escape_string($_GET['search']);
                      <li>
                         <a  href="./generate.php"class="hover:text-blue-500 duration-200 transition-colors cursor-pointer font-semibold">Generate Report</a>
                     </li>
+                    <li>
+                        <a  href="./reports.php"class="hover:text-blue-500 duration-200 transition-colors cursor-pointer font-semibold">Feedbacks</a>
+                    </li>
                      <li>
                         <a href=".././logout.php" class="hover:text-blue-500 duration-200 transition-colors cursor-pointer font-semibold bg-red-600 text-white px-3 p-1 rounded-md">Logout</a>
                     </li>

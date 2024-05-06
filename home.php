@@ -68,6 +68,14 @@ echo $id;
                <span class="flex-1 ms-3 hover:text-white text-gray-700 whitespace-nowrap">History</span>
             </a>
          </li>
+          <li>
+            <a href="./report.php" class="flex items-center text-[#2672E3] p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+               <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z"/>
+               </svg>
+               <span class="flex-1 ms-3 hover:text-white text-gray-700 whitespace-nowrap">Report</span>
+            </a>
+         </li>
          <li>
             <a href="./settings.php" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -89,9 +97,36 @@ echo $id;
 </aside>
 <main class="ml-72 text-black mt-20">
     <div class="flex flex-col">
-      <span class="text-xl text-gray-700 text-center">Welcome <?php echo $student['firstname'];?>!</span>
-      <span class="text-xl text-gray-700 text-center ">You have <?php echo $student['sessions'];?> sessions available!</span>
-
+      <span class="text-xl text-center text-white">Welcome <?php echo $student['firstname'];?>!</span>
+      <span class="text-xl  text-center text-white">You have <?php echo $student['sessions'];?> sessions available!</span>
+        <div class="bg-gray-700 bg-opacity-40 text-white mt-8 rounded-lg shadow-lg p-8  w-full pr-25">
+        <h2 class="text-2xl font-semibold mb-4 text-center">LABORATORY RULES AND REGULATIONS</h2>
+        <ol class="list-decimal pl-6">
+            <li class="mb-2">Maintain silence, proper decorum, and discipline inside the laboratory. Mobile phones, walkmans and other personal pieces of equipment must be switched off.</li>
+            <li class="mb-2">Games are not allowed inside the lab. This includes computer-related games, card games and other games that may disturb the operation of the lab.</li>
+            <li class="mb-2">Surfing the Internet is allowed only with the permission of the instructor. Downloading and installing of software are strictly prohibited.</li>
+            <li class="mb-2">Getting access to other websites not related to the course (especially pornographic and illicit sites) is strictly prohibited.</li>
+            <li class="mb-2">Deleting computer files and changing the set-up of the computer is a major offense.</li>
+            <li class="mb-2">Observe computer time usage carefully. A fifteen-minute allowance is given for each use. Otherwise, the unit will be given to those who wish to “sit-in”.</li>
+            <li class="mb-2">Observe proper decorum while inside the laboratory:
+                <ol class="list-disc pl-6">
+                    <li>Do not get inside the lab unless the instructor is present.</li>
+                    <li>All bags, knapsacks, and the likes must be deposited at the counter.</li>
+                    <li>Follow the seating arrangement of your instructor.</li>
+                    <li>At the end of class, all software programs must be closed.</li>
+                    <li>Return all chairs to their proper places after using.</li>
+                </ol>
+            </li>
+            <li class="mb-2">Chewing gum, eating, drinking, smoking, and other forms of vandalism are prohibited inside the lab.</li>
+            <li class="mb-2">Anyone causing a continual disturbance will be asked to leave the lab. Acts or gestures offensive to the members of the community, including public display of physical intimacy, are not tolerated.</li>
+            <li class="mb-2">Persons exhibiting hostile or threatening behavior such as yelling, swearing, or Disregarding requests made by lab personnel will be asked to leave the lab.</li>
+            <div class="bg-gray-700 p-6 rounded-lg shadow-md">
+            <h2 class="text-lg font-semibold mb-4">DISCIPLINARY ACTION</h2>
+            <p class="mb-2"><strong>First Offense:</strong> The Head or the Dean or OIC recommends to the Guidance Center for a suspension from classes for each offender.</p>
+            <p class="mb-2"><strong>Second and Subsequent Offenses:</strong> A recommendation for a heavier sanction will be endorsed to the Guidance Center.</p>
+        </div>
+        </ol>
+    </div>
     </div>
 </main>
 </body>
